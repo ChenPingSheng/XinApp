@@ -19,14 +19,9 @@
 		B4071F671BD9D99C0039C857 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4071F651BD9D99C0039C857 /* LaunchScreen.storyboard */; };
 		B4071F741BD9DE980039C857 /* ZhiHuAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = B4071F731BD9DE980039C857 /* ZhiHuAPI.m */; };
 		B4071F771BD9DEAE0039C857 /* ZhiHuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4071F761BD9DEAE0039C857 /* ZhiHuViewController.m */; };
-		B4073ED11BE70DA900A7DD24 /* TiebaLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4073ED01BE70DA900A7DD24 /* TiebaLoginViewController.m */; };
-		B4073ED41BE7156B00A7DD24 /* TiebaCookie.m in Sources */ = {isa = PBXBuildFile; fileRef = B4073ED31BE7156B00A7DD24 /* TiebaCookie.m */; };
 		B4073EDB1BE73F9700A7DD24 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4073EDA1BE73F9700A7DD24 /* WebViewController.m */; };
 		B4073EDE1BE7410500A7DD24 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4073EDD1BE7410500A7DD24 /* MainViewController.m */; };
 		B4073EE41BE75CC000A7DD24 /* UIImage+Text.m in Sources */ = {isa = PBXBuildFile; fileRef = B4073EE31BE75CC000A7DD24 /* UIImage+Text.m */; };
-		B422AEFE1BDDF72F002F7955 /* TiebaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B422AEFD1BDDF72F002F7955 /* TiebaViewController.m */; };
-		B422AF021BDDF90B002F7955 /* TiebaDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B422AF011BDDF90B002F7955 /* TiebaDetailViewController.m */; };
-		B422AF051BDDFDD1002F7955 /* TiebaAdminViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B422AF041BDDFDD1002F7955 /* TiebaAdminViewController.m */; };
 		B4CA4BC61BDE10E30082BDE6 /* ZhiHuNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4BC51BDE10E30082BDE6 /* ZhiHuNewsDetailViewController.m */; };
 		B4CA4BC91BDE2B340082BDE6 /* ZhiHuThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4BC81BDE2B340082BDE6 /* ZhiHuThemesViewController.m */; };
 		B4CA4BCC1BDE2C600082BDE6 /* ZhiHuThemeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4BCB1BDE2C600082BDE6 /* ZhiHuThemeDetailViewController.m */; };
@@ -59,23 +54,12 @@
 		B4071F731BD9DE980039C857 /* ZhiHuAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZhiHuAPI.m; path = ZhiHu/ZhiHuAPI.m; sourceTree = "<group>"; };
 		B4071F751BD9DEAE0039C857 /* ZhiHuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZhiHuViewController.h; path = ZhiHu/ZhiHuViewController.h; sourceTree = "<group>"; };
 		B4071F761BD9DEAE0039C857 /* ZhiHuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZhiHuViewController.m; path = ZhiHu/ZhiHuViewController.m; sourceTree = "<group>"; };
-		B4073ECF1BE70DA900A7DD24 /* TiebaLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiebaLoginViewController.h; path = Tieba/TiebaLoginViewController.h; sourceTree = "<group>"; };
-		B4073ED01BE70DA900A7DD24 /* TiebaLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiebaLoginViewController.m; path = Tieba/TiebaLoginViewController.m; sourceTree = "<group>"; };
-		B4073ED21BE7156B00A7DD24 /* TiebaCookie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiebaCookie.h; path = Tieba/TiebaCookie.h; sourceTree = "<group>"; };
-		B4073ED31BE7156B00A7DD24 /* TiebaCookie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiebaCookie.m; path = Tieba/TiebaCookie.m; sourceTree = "<group>"; };
 		B4073ED91BE73F9700A7DD24 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		B4073EDA1BE73F9700A7DD24 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		B4073EDC1BE7410500A7DD24 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		B4073EDD1BE7410500A7DD24 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		B4073EE21BE75CC000A7DD24 /* UIImage+Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Text.h"; path = "Categories/UIImage+Text.h"; sourceTree = "<group>"; };
 		B4073EE31BE75CC000A7DD24 /* UIImage+Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Text.m"; path = "Categories/UIImage+Text.m"; sourceTree = "<group>"; };
-		B422AEFC1BDDF72F002F7955 /* TiebaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiebaViewController.h; path = Tieba/TiebaViewController.h; sourceTree = "<group>"; };
-		B422AEFD1BDDF72F002F7955 /* TiebaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiebaViewController.m; path = Tieba/TiebaViewController.m; sourceTree = "<group>"; };
-		B422AF001BDDF90B002F7955 /* TiebaDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiebaDetailViewController.h; path = Tieba/TiebaDetailViewController.h; sourceTree = "<group>"; };
-		B422AF011BDDF90B002F7955 /* TiebaDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiebaDetailViewController.m; path = Tieba/TiebaDetailViewController.m; sourceTree = "<group>"; };
-		B422AF031BDDFDD1002F7955 /* TiebaAdminViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiebaAdminViewController.h; path = Tieba/TiebaAdminViewController.h; sourceTree = "<group>"; };
-		B422AF041BDDFDD1002F7955 /* TiebaAdminViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiebaAdminViewController.m; path = Tieba/TiebaAdminViewController.m; sourceTree = "<group>"; };
-		B422AF061BDDFE00002F7955 /* TiebaHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TiebaHeader.h; path = Tieba/TiebaHeader.h; sourceTree = "<group>"; };
 		B4CA4BC41BDE10E30082BDE6 /* ZhiHuNewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZhiHuNewsDetailViewController.h; path = ZhiHu/ZhiHuNewsDetailViewController.h; sourceTree = "<group>"; };
 		B4CA4BC51BDE10E30082BDE6 /* ZhiHuNewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZhiHuNewsDetailViewController.m; path = ZhiHu/ZhiHuNewsDetailViewController.m; sourceTree = "<group>"; };
 		B4CA4BC71BDE2B340082BDE6 /* ZhiHuThemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZhiHuThemesViewController.h; path = ZhiHu/ZhiHuThemesViewController.h; sourceTree = "<group>"; };
@@ -158,7 +142,6 @@
 				B4030F681BE9D14C00A14A87 /* CXURLCache.h */,
 				B4030F691BE9D14C00A14A87 /* CXURLCache.m */,
 				B4030F9E1BE9FABD00A14A87 /* Setting */,
-				B422AEFF1BDDF734002F7955 /* Tieba */,
 				B4071F711BD9DD570039C857 /* ZhiHu */,
 				B4071F631BD9D99C0039C857 /* Assets.xcassets */,
 				B4071F651BD9D99C0039C857 /* LaunchScreen.storyboard */,
@@ -202,24 +185,6 @@
 				B4030F6C1BE9E18100A14A87 /* NSString+Pinyin.m */,
 			);
 			name = Categories;
-			sourceTree = "<group>";
-		};
-		B422AEFF1BDDF734002F7955 /* Tieba */ = {
-			isa = PBXGroup;
-			children = (
-				B422AF061BDDFE00002F7955 /* TiebaHeader.h */,
-				B4073ED21BE7156B00A7DD24 /* TiebaCookie.h */,
-				B4073ED31BE7156B00A7DD24 /* TiebaCookie.m */,
-				B422AEFC1BDDF72F002F7955 /* TiebaViewController.h */,
-				B422AEFD1BDDF72F002F7955 /* TiebaViewController.m */,
-				B422AF031BDDFDD1002F7955 /* TiebaAdminViewController.h */,
-				B422AF041BDDFDD1002F7955 /* TiebaAdminViewController.m */,
-				B422AF001BDDF90B002F7955 /* TiebaDetailViewController.h */,
-				B422AF011BDDF90B002F7955 /* TiebaDetailViewController.m */,
-				B4073ECF1BE70DA900A7DD24 /* TiebaLoginViewController.h */,
-				B4073ED01BE70DA900A7DD24 /* TiebaLoginViewController.m */,
-			);
-			name = Tieba;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,22 +296,17 @@
 				B4CA4BCC1BDE2C600082BDE6 /* ZhiHuThemeDetailViewController.m in Sources */,
 				B4073EDB1BE73F9700A7DD24 /* WebViewController.m in Sources */,
 				B4073EE41BE75CC000A7DD24 /* UIImage+Text.m in Sources */,
-				B422AF021BDDF90B002F7955 /* TiebaDetailViewController.m in Sources */,
 				B4071F591BD9D99B0039C857 /* AppDelegate.m in Sources */,
 				B4030F9D1BE9FAB900A14A87 /* SettingViewController.m in Sources */,
 				B4CA4BC91BDE2B340082BDE6 /* ZhiHuThemesViewController.m in Sources */,
 				B4071F771BD9DEAE0039C857 /* ZhiHuViewController.m in Sources */,
 				B4071F561BD9D99B0039C857 /* main.m in Sources */,
 				B4030FA21BEA04E400A14A87 /* WebsiteListViewController.m in Sources */,
-				B4073ED11BE70DA900A7DD24 /* TiebaLoginViewController.m in Sources */,
 				B4030F6A1BE9D14C00A14A87 /* CXURLCache.m in Sources */,
-				B422AEFE1BDDF72F002F7955 /* TiebaViewController.m in Sources */,
 				B4071F741BD9DE980039C857 /* ZhiHuAPI.m in Sources */,
 				B4030F6D1BE9E18100A14A87 /* NSString+Pinyin.m in Sources */,
 				B4CA4BC61BDE10E30082BDE6 /* ZhiHuNewsDetailViewController.m in Sources */,
-				B422AF051BDDFDD1002F7955 /* TiebaAdminViewController.m in Sources */,
 				B4073EDE1BE7410500A7DD24 /* MainViewController.m in Sources */,
-				B4073ED41BE7156B00A7DD24 /* TiebaCookie.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

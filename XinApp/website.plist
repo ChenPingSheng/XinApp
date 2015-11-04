@@ -28,6 +28,12 @@
 	</dict>
 	<dict>
 		<key>Title</key>
+		<string>虎扑论坛</string>
+		<key>URL</key>
+		<string>http://m.hupu.com/bbs</string>
+	</dict>
+	<dict>
+		<key>Title</key>
 		<string>果壳</string>
 		<key>URL</key>
 		<string>http://m.guokr.com</string>

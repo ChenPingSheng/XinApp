@@ -9,6 +9,7 @@
 
 #import "CXURLCache.h"
 #import <AFNetworkReachabilityManager.h>
+#import "XinAppDefine.h"
 
 @interface CXURLCache () {
     BOOL shouldLoadImg;
@@ -41,6 +42,10 @@
 
 - (BOOL)shouldBlockURL:(NSURL *)url
 {
+    BOOL noWiFiNoImage = [[NSUserDefaults standardUserDefaults] boolForKey:CXNoWiFiNoImageKey];
+    if (!noWiFiNoImage) {
+        return NO;
+    }
     if (shouldLoadImg) {
         return NO;
     }

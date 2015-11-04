@@ -11,6 +11,7 @@
 		B4030F6D1BE9E18100A14A87 /* NSString+Pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = B4030F6C1BE9E18100A14A87 /* NSString+Pinyin.m */; };
 		B4030F721BE9EEBF00A14A87 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4030F711BE9EEBF00A14A87 /* README.txt */; };
 		B4030F9A1BE9F3AD00A14A87 /* website.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4030F991BE9F3AD00A14A87 /* website.plist */; };
+		B4030F9D1BE9FAB900A14A87 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4030F9C1BE9FAB900A14A87 /* SettingViewController.m */; };
 		B4071F561BD9D99B0039C857 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4071F551BD9D99B0039C857 /* main.m */; };
 		B4071F591BD9D99B0039C857 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4071F581BD9D99B0039C857 /* AppDelegate.m */; };
 		B4071F641BD9D99C0039C857 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4071F631BD9D99C0039C857 /* Assets.xcassets */; };
@@ -41,6 +42,9 @@
 		B4030F6C1BE9E18100A14A87 /* NSString+Pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Pinyin.m"; path = "Categories/NSString+Pinyin.m"; sourceTree = "<group>"; };
 		B4030F711BE9EEBF00A14A87 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		B4030F991BE9F3AD00A14A87 /* website.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = website.plist; sourceTree = "<group>"; };
+		B4030F9B1BE9FAB900A14A87 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Setting/SettingViewController.h; sourceTree = "<group>"; };
+		B4030F9C1BE9FAB900A14A87 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Setting/SettingViewController.m; sourceTree = "<group>"; };
+		B4030F9F1BEA015F00A14A87 /* XinAppDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XinAppDefine.h; path = XinApp/XinAppDefine.h; sourceTree = "<group>"; };
 		B4071F511BD9D99B0039C857 /* XinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4071F551BD9D99B0039C857 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4071F571BD9D99B0039C857 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,11 +110,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B4030F9E1BE9FABD00A14A87 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B4030F9B1BE9FAB900A14A87 /* SettingViewController.h */,
+				B4030F9C1BE9FAB900A14A87 /* SettingViewController.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 		B4071F481BD9D99B0039C857 = {
 			isa = PBXGroup;
 			children = (
 				B4030F711BE9EEBF00A14A87 /* README.txt */,
 				B4030F991BE9F3AD00A14A87 /* website.plist */,
+				B4030F9F1BEA015F00A14A87 /* XinAppDefine.h */,
 				B4071F531BD9D99B0039C857 /* XinApp */,
 				B4071F521BD9D99B0039C857 /* Products */,
 				0F81B24CE9A1F9EEA9C7B4B6 /* Pods */,
@@ -138,6 +152,7 @@
 				B4073EDA1BE73F9700A7DD24 /* WebViewController.m */,
 				B4030F681BE9D14C00A14A87 /* CXURLCache.h */,
 				B4030F691BE9D14C00A14A87 /* CXURLCache.m */,
+				B4030F9E1BE9FABD00A14A87 /* Setting */,
 				B422AEFF1BDDF734002F7955 /* Tieba */,
 				B4071F711BD9DD570039C857 /* ZhiHu */,
 				B4071F631BD9D99C0039C857 /* Assets.xcassets */,
@@ -313,6 +328,7 @@
 				B4073EE41BE75CC000A7DD24 /* UIImage+Text.m in Sources */,
 				B422AF021BDDF90B002F7955 /* TiebaDetailViewController.m in Sources */,
 				B4071F591BD9D99B0039C857 /* AppDelegate.m in Sources */,
+				B4030F9D1BE9FAB900A14A87 /* SettingViewController.m in Sources */,
 				B4CA4BC91BDE2B340082BDE6 /* ZhiHuThemesViewController.m in Sources */,
 				B4071F771BD9DEAE0039C857 /* ZhiHuViewController.m in Sources */,
 				B4071F561BD9D99B0039C857 /* main.m in Sources */,

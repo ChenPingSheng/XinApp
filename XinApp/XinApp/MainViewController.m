@@ -13,6 +13,7 @@
 #import "UIImage+Text.h"
 #import "CXURLCache.h"
 #import "NSString+Pinyin.h"
+#import "SettingViewController.h"
 
 @interface MainViewController ()
 
@@ -57,6 +58,8 @@
         
         self.viewControllers = viewCtrls;
         
+        UINavigationController *navCtrl = [viewCtrls firstObject];
+        navCtrl.topViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(showSetting)];
     }
     return self;
 }
@@ -64,7 +67,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    //无图模式
+    
+    //为了在非WiFi环境下停止加载图片，替换默认的URLCache
     CXURLCache *cache = [[CXURLCache alloc] init];
     [NSURLCache setSharedURLCache:cache];
 }
@@ -74,14 +78,16 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)showSetting {
+    SettingViewController *vc = [[SettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    vc.title = @"设置";
+    vc.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(dismissViewCtrl)];
+    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:vc];
+    [self presentViewController:navCtrl animated:YES completion:nil];
 }
-*/
+
+- (void)dismissViewCtrl {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end

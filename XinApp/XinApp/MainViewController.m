@@ -28,11 +28,9 @@
         self.tabBar.translucent = NO;
         
         self.websites = [[NSMutableArray alloc] init];
-        [self.websites addObjectsFromArray:@[@{@"Title":@"微博",@"URL":@"http://m.weibo.cn"},
-                                             @{@"Title":@"贴吧",@"URL":@"http://tieba.baidu.com"},
-                                             @{@"Title":@"豆瓣",@"URL":@"http://m.douban.com"},
-                                             @{@"Title":@"天涯",@"URL":@"http://m.tianya.cn"},
-                                             @{@"Title":@"果壳",@"URL":@"http://m.guokr.com"}]];
+        NSString *plistFile = [[NSBundle mainBundle] pathForResource:@"website" ofType:@"plist"];
+        NSArray *array = [NSArray arrayWithContentsOfFile:plistFile];
+        [self.websites addObjectsFromArray:array];
         
         NSMutableArray *viewCtrls = [[NSMutableArray alloc] init];
         

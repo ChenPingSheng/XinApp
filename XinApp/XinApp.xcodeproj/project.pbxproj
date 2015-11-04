@@ -10,6 +10,7 @@
 		B4030F6A1BE9D14C00A14A87 /* CXURLCache.m in Sources */ = {isa = PBXBuildFile; fileRef = B4030F691BE9D14C00A14A87 /* CXURLCache.m */; };
 		B4030F6D1BE9E18100A14A87 /* NSString+Pinyin.m in Sources */ = {isa = PBXBuildFile; fileRef = B4030F6C1BE9E18100A14A87 /* NSString+Pinyin.m */; };
 		B4030F721BE9EEBF00A14A87 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4030F711BE9EEBF00A14A87 /* README.txt */; };
+		B4030F9A1BE9F3AD00A14A87 /* website.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4030F991BE9F3AD00A14A87 /* website.plist */; };
 		B4071F561BD9D99B0039C857 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4071F551BD9D99B0039C857 /* main.m */; };
 		B4071F591BD9D99B0039C857 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4071F581BD9D99B0039C857 /* AppDelegate.m */; };
 		B4071F641BD9D99C0039C857 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4071F631BD9D99C0039C857 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 		B4030F6B1BE9E18100A14A87 /* NSString+Pinyin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Pinyin.h"; path = "Categories/NSString+Pinyin.h"; sourceTree = "<group>"; };
 		B4030F6C1BE9E18100A14A87 /* NSString+Pinyin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Pinyin.m"; path = "Categories/NSString+Pinyin.m"; sourceTree = "<group>"; };
 		B4030F711BE9EEBF00A14A87 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		B4030F991BE9F3AD00A14A87 /* website.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = website.plist; sourceTree = "<group>"; };
 		B4071F511BD9D99B0039C857 /* XinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4071F551BD9D99B0039C857 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4071F571BD9D99B0039C857 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				B4030F711BE9EEBF00A14A87 /* README.txt */,
+				B4030F991BE9F3AD00A14A87 /* website.plist */,
 				B4071F531BD9D99B0039C857 /* XinApp */,
 				B4071F521BD9D99B0039C857 /* Products */,
 				0F81B24CE9A1F9EEA9C7B4B6 /* Pods */,
@@ -260,6 +263,7 @@
 			files = (
 				B4071F671BD9D99C0039C857 /* LaunchScreen.storyboard in Resources */,
 				B4030F721BE9EEBF00A14A87 /* README.txt in Resources */,
+				B4030F9A1BE9F3AD00A14A87 /* website.plist in Resources */,
 				B4071F641BD9D99C0039C857 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

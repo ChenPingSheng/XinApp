@@ -26,15 +26,20 @@
     [self.view addSubview:self.webView];
     self.webView.scrollView.delegate = self;
     
-//    [self createToolbarItems];
-    
     NSURL *url = [NSURL URLWithString:self.urlString];
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    self.navigationController.toolbarHidden = YES;
 }
 
 - (void)viewDidLayoutSubviews
 {
     originContentOffset = self.webView.scrollView.contentOffset;
+    [self createToolbarItems];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,11 +50,6 @@
 - (void)createToolbarItems
 {
     if (!self.navigationController.toolbarHidden) {
-        UIBarButtonItem *item1 = self.navigationController.toolbar.items[1];
-        UIBarButtonItem *item2 = self.navigationController.toolbar.items[3];
-        item1.enabled = [self.webView canGoBack];
-        item2.enabled = [self.webView canGoForward];
-        
         return;
     }
     UIBarButtonItem *flexItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -69,6 +69,13 @@
     
     self.navigationController.toolbarHidden = NO;
     self.navigationController.toolbar.items = @[fixedItem, item1, flexItem, item2, flexItem, item3, flexItem, item4, fixedItem];
+}
+
+- (void)reloadToolbarItemStatus {
+    UIBarButtonItem *item1 = self.navigationController.toolbar.items[1];
+    UIBarButtonItem *item2 = self.navigationController.toolbar.items[3];
+    item1.enabled = [self.webView canGoBack];
+    item2.enabled = [self.webView canGoForward];
 }
 
 - (void)setGoTopEnable:(BOOL)enabled {
@@ -91,7 +98,7 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [self createToolbarItems];
+    [self reloadToolbarItemStatus];
 }
 
 #pragma mark - scrollview delegate

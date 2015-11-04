@@ -1,6 +1,7 @@
 //
 //  CXURLCache.m
 //  XinApp
+//  非WiFi网络环境下不加载图片，参考链接：http://www.icab.de/blog/2009/08/18/url-filtering-with-uiwebview-on-the-iphone/
 //
 //  Created by Kingyee on 15/11/4.
 //  Copyright © 2015年 ChenXinApp. All rights reserved.

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Title</key>
+		<string>微博</string>
+		<key>URL</key>
+		<string>http://m.weibo.cn</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>贴吧</string>
+		<key>URL</key>
+		<string>http://tieba.baidu.com</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>豆瓣</string>
+		<key>URL</key>
+		<string>http://m.douban.com</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>天涯</string>
+		<key>URL</key>
+		<string>http://m.tianya.cn</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>果壳</string>
+		<key>URL</key>
+		<string>http://m.guokr.com</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>36氪</string>
+		<key>URL</key>
+		<string>http://m.36kr.com</string>
+	</dict>
+	<dict>
+		<key>Title</key>
+		<string>虎嗅</string>
+		<key>URL</key>
+		<string>http://m.huxiu.com</string>
+	</dict>
+</array>
+</plist>

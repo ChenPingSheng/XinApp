@@ -10,6 +10,7 @@
 #import "XinAppDefine.h"
 #import "UIImage+Text.h"
 #import "NSString+Pinyin.h"
+#import "CXWebsiteManager.h"
 
 @interface WebsiteListViewController ()
 {
@@ -32,19 +33,7 @@
     UIBarButtonItem *item2 = [[UIBarButtonItem alloc] initWithTitle:@"排序删除" style:UIBarButtonItemStylePlain target:self action:@selector(moveAction)];
     self.navigationItem.rightBarButtonItems = @[item1, item2];
     
-    self.dataArray = [[NSMutableArray alloc] init];
-    NSString *filePath = [self websiteListFilePath];
-    NSFileManager *fm = [NSFileManager defaultManager];
-    if ([fm fileExistsAtPath:filePath]) {
-        NSArray *array = [NSArray arrayWithContentsOfFile:filePath];
-        [self.dataArray addObjectsFromArray:array];
-    }
-    else {
-        NSString *srcFilePath = [[NSBundle mainBundle] pathForResource:@"website" ofType:@"plist"];
-        [fm copyItemAtPath:srcFilePath toPath:filePath error:NULL];
-        NSArray *array = [NSArray arrayWithContentsOfFile:srcFilePath];
-        [self.dataArray addObjectsFromArray:array];
-    }
+    self.dataArray = [CXWebsiteManager sharedWebsites];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -57,22 +46,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (NSString*)websiteListFilePath
-{
-    NSString *docDir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
-    NSString *filePath = [docDir stringByAppendingPathComponent:CXWebsiteFile];
-    return filePath;
-}
-
-- (BOOL)websiteExistsWithTitle:(NSString *)title url:(NSString*)url {
-    for (NSDictionary *dict in self.dataArray) {
-        if ([title isEqualToString:dict[@"Title"]] && [url isEqualToString:dict[@"URL"]]) {
-            return YES;
-        }
-    }
-    return NO;
 }
 
 - (void)addAction
@@ -89,9 +62,9 @@
         NSString *title = alertCtrl.textFields[0].text;
         NSString *url = alertCtrl.textFields[1].text;
         if (title.length > 0 && url.length > 0 &&
-            ![self websiteExistsWithTitle:title url:url]) {
-            [self.dataArray insertObject:@{@"Title":title, @"URL":url} atIndex:0];
-            [self.dataArray writeToFile:[self websiteListFilePath] atomically:YES];
+            ![CXWebsiteManager websiteExistsWithTitle:title url:url]) {
+            [self.dataArray addObject:@{@"Title":title, @"URL":url}];
+            [CXWebsiteManager addWebsiteWithTitle:title url:url fromExt:NO];
             [self.tableView reloadData];
             isChanged = YES;
         }
@@ -148,7 +121,7 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
         [self.dataArray removeObjectAtIndex:indexPath.row];
-        [self.dataArray writeToFile:[self websiteListFilePath] atomically:YES];
+        [CXWebsiteManager saveWebsites:self.dataArray];
         isChanged = YES;
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
@@ -161,7 +134,7 @@
     id fromObject = self.dataArray[fromIndexPath.row];
     [self.dataArray removeObjectAtIndex:fromIndexPath.row];
     [self.dataArray insertObject:fromObject atIndex:toIndexPath.row];
-    [self.dataArray writeToFile:[self websiteListFilePath] atomically:YES];
+    [CXWebsiteManager saveWebsites:self.dataArray];
     isChanged = YES;
 }
 

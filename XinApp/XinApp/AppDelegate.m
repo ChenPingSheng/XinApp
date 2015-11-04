@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import "CXWebsiteManager.h"
 
 @interface AppDelegate ()
 
@@ -45,6 +46,9 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    if ([CXWebsiteManager websitesIsDifferent]) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:CXWebsiteListDidChangedNotification object:nil];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {

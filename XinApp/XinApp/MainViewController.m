@@ -15,6 +15,7 @@
 #import "NSString+Pinyin.h"
 #import "SettingViewController.h"
 #import "XinAppDefine.h"
+#import "CXWebsiteManager.h"
 
 @interface MainViewController ()
 
@@ -29,17 +30,8 @@
     if (self) {
         self.tabBar.translucent = NO;
         
-        self.websites = [[NSMutableArray alloc] init];
         
-        NSFileManager *fm = [NSFileManager defaultManager];
-        NSString *srcFilePath = [[NSBundle mainBundle] pathForResource:@"website" ofType:@"plist"];
-        NSString *dstFilePath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%@", CXWebsiteFile]];
-        if (![fm fileExistsAtPath:dstFilePath]) {
-            [fm copyItemAtPath:srcFilePath toPath:dstFilePath error:NULL];
-        }
-        
-        NSArray *array = [NSArray arrayWithContentsOfFile:dstFilePath];
-        [self.websites addObjectsFromArray:array];
+        self.websites = [CXWebsiteManager sharedWebsites];
         
         [self loadViewControllers];
         
@@ -112,10 +104,7 @@
 
 - (void)websiteListDidChange {
     
-    NSString *dstFilePath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%@", CXWebsiteFile]];
-    NSArray *array = [NSArray arrayWithContentsOfFile:dstFilePath];
-    [self.websites removeAllObjects];
-    [self.websites addObjectsFromArray:array];
+    self.websites = [CXWebsiteManager sharedWebsites];
     
     [self reloadViewControllers];
 }

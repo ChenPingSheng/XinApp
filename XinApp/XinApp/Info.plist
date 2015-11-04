@@ -47,5 +47,16 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>XinApp</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>XinApp</string>
+			</array>
+		</dict>
+	</array>
 </dict>
 </plist>

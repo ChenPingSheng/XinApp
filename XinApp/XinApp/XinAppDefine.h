@@ -11,4 +11,8 @@
 
 #define CXNoWiFiNoImageKey  @"CXNoWiFiNoImageKey"
 
+#define CXWebsiteFile       @"website.plist"
+
+#define CXWebsiteListDidChangedNotification @"CXWebsiteListDidChangedNotification"
+
 #endif /* XinAppDefine_h */

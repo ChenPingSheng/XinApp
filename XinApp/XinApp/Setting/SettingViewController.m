@@ -8,6 +8,7 @@
 
 #import "SettingViewController.h"
 #import "XinAppDefine.h"
+#import "WebsiteListViewController.h"
 
 @interface SettingViewController ()
 
@@ -54,7 +55,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -66,10 +67,25 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     // Configure the cell...
     
-    cell.textLabel.text = @"非WiFi环境下不加载图片";
-    cell.accessoryView = self.noImageSwitch;
+    if (indexPath.section == 0) {
+        cell.textLabel.text = @"网站列表";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else if (indexPath.section == 1) {
+        cell.textLabel.text = @"非WiFi环境下不加载图片";
+        cell.accessoryView = self.noImageSwitch;
+    }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        WebsiteListViewController *vc = [[WebsiteListViewController alloc] init];
+        vc.title = @"网站列表";
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 @end

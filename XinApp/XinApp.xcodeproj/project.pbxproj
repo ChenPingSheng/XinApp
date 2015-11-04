@@ -12,6 +12,7 @@
 		B4030F721BE9EEBF00A14A87 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = B4030F711BE9EEBF00A14A87 /* README.txt */; };
 		B4030F9A1BE9F3AD00A14A87 /* website.plist in Resources */ = {isa = PBXBuildFile; fileRef = B4030F991BE9F3AD00A14A87 /* website.plist */; };
 		B4030F9D1BE9FAB900A14A87 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4030F9C1BE9FAB900A14A87 /* SettingViewController.m */; };
+		B4030FA21BEA04E400A14A87 /* WebsiteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4030FA11BEA04E400A14A87 /* WebsiteListViewController.m */; };
 		B4071F561BD9D99B0039C857 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B4071F551BD9D99B0039C857 /* main.m */; };
 		B4071F591BD9D99B0039C857 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B4071F581BD9D99B0039C857 /* AppDelegate.m */; };
 		B4071F641BD9D99C0039C857 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4071F631BD9D99C0039C857 /* Assets.xcassets */; };
@@ -45,6 +46,8 @@
 		B4030F9B1BE9FAB900A14A87 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingViewController.h; path = Setting/SettingViewController.h; sourceTree = "<group>"; };
 		B4030F9C1BE9FAB900A14A87 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingViewController.m; path = Setting/SettingViewController.m; sourceTree = "<group>"; };
 		B4030F9F1BEA015F00A14A87 /* XinAppDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = XinAppDefine.h; path = XinApp/XinAppDefine.h; sourceTree = "<group>"; };
+		B4030FA01BEA04E400A14A87 /* WebsiteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebsiteListViewController.h; path = Setting/WebsiteListViewController.h; sourceTree = "<group>"; };
+		B4030FA11BEA04E400A14A87 /* WebsiteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebsiteListViewController.m; path = Setting/WebsiteListViewController.m; sourceTree = "<group>"; };
 		B4071F511BD9D99B0039C857 /* XinApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XinApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4071F551BD9D99B0039C857 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B4071F571BD9D99B0039C857 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 			children = (
 				B4030F9B1BE9FAB900A14A87 /* SettingViewController.h */,
 				B4030F9C1BE9FAB900A14A87 /* SettingViewController.m */,
+				B4030FA01BEA04E400A14A87 /* WebsiteListViewController.h */,
+				B4030FA11BEA04E400A14A87 /* WebsiteListViewController.m */,
 			);
 			name = Setting;
 			sourceTree = "<group>";
@@ -332,6 +337,7 @@
 				B4CA4BC91BDE2B340082BDE6 /* ZhiHuThemesViewController.m in Sources */,
 				B4071F771BD9DEAE0039C857 /* ZhiHuViewController.m in Sources */,
 				B4071F561BD9D99B0039C857 /* main.m in Sources */,
+				B4030FA21BEA04E400A14A87 /* WebsiteListViewController.m in Sources */,
 				B4073ED11BE70DA900A7DD24 /* TiebaLoginViewController.m in Sources */,
 				B4030F6A1BE9D14C00A14A87 /* CXURLCache.m in Sources */,
 				B422AEFE1BDDF72F002F7955 /* TiebaViewController.m in Sources */,

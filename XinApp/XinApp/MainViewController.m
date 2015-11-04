@@ -14,6 +14,7 @@
 #import "CXURLCache.h"
 #import "NSString+Pinyin.h"
 #import "SettingViewController.h"
+#import "XinAppDefine.h"
 
 @interface MainViewController ()
 
@@ -29,37 +30,20 @@
         self.tabBar.translucent = NO;
         
         self.websites = [[NSMutableArray alloc] init];
-        NSString *plistFile = [[NSBundle mainBundle] pathForResource:@"website" ofType:@"plist"];
-        NSArray *array = [NSArray arrayWithContentsOfFile:plistFile];
-        [self.websites addObjectsFromArray:array];
         
-        NSMutableArray *viewCtrls = [[NSMutableArray alloc] init];
-        
-        UIImage *image1 = [UIImage imageWithText:@"Z" size:CGSizeMake(24, 24)];
-        ZhiHuViewController *zhihuVC = [[ZhiHuViewController alloc] init];
-        UINavigationController *navCtrl1 = [[UINavigationController alloc] initWithRootViewController:zhihuVC];
-        navCtrl1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"知乎日报" image:image1 selectedImage:nil];
-        [viewCtrls addObject:navCtrl1];
-        
-//        UIImage *image2 = [UIImage imageWithText:@"T" size:CGSizeMake(24, 24)];
-//        TiebaViewController *tiebaVC = [[TiebaViewController alloc] init];
-//        UINavigationController *navCtrl2 = [[UINavigationController alloc] initWithRootViewController:tiebaVC];
-//        navCtrl2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"贴吧" image:image2 selectedImage:nil];
-//        [viewCtrls addObject:navCtrl2];
-        
-        for (NSDictionary *dict in self.websites) {
-            WebViewController *webVC = [[WebViewController alloc] init];
-            webVC.title = dict[@"Title"];
-            webVC.urlString = dict[@"URL"];
-            UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:webVC];
-            navCtrl.tabBarItem = [[UITabBarItem alloc] initWithTitle:dict[@"Title"] image:[UIImage imageWithText:[dict[@"Title"] firstLetterOfPinyin] size:CGSizeMake(24, 24)] selectedImage:nil];
-            [viewCtrls addObject:navCtrl];
+        NSFileManager *fm = [NSFileManager defaultManager];
+        NSString *srcFilePath = [[NSBundle mainBundle] pathForResource:@"website" ofType:@"plist"];
+        NSString *dstFilePath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%@", CXWebsiteFile]];
+        if (![fm fileExistsAtPath:dstFilePath]) {
+            [fm copyItemAtPath:srcFilePath toPath:dstFilePath error:NULL];
         }
         
-        self.viewControllers = viewCtrls;
+        NSArray *array = [NSArray arrayWithContentsOfFile:dstFilePath];
+        [self.websites addObjectsFromArray:array];
         
-        UINavigationController *navCtrl = [viewCtrls firstObject];
-        navCtrl.topViewController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(showSetting)];
+        [self loadViewControllers];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(websiteListDidChange) name:CXWebsiteListDidChangedNotification object:nil];
     }
     return self;
 }
@@ -76,6 +60,64 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)loadViewControllers {
+    
+    NSMutableArray *viewCtrls = [[NSMutableArray alloc] init];
+    
+    UIImage *image1 = [UIImage imageWithText:@"Z" size:CGSizeMake(24, 24)];
+    ZhiHuViewController *zhihuVC = [[ZhiHuViewController alloc] init];
+    UINavigationController *navCtrl1 = [[UINavigationController alloc] initWithRootViewController:zhihuVC];
+    navCtrl1.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"知乎日报" image:image1 selectedImage:nil];
+    [viewCtrls addObject:navCtrl1];
+    
+    zhihuVC.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"设置" style:UIBarButtonItemStylePlain target:self action:@selector(showSetting)];
+    
+//        UIImage *image2 = [UIImage imageWithText:@"T" size:CGSizeMake(24, 24)];
+//        TiebaViewController *tiebaVC = [[TiebaViewController alloc] init];
+//        UINavigationController *navCtrl2 = [[UINavigationController alloc] initWithRootViewController:tiebaVC];
+//        navCtrl2.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"贴吧" image:image2 selectedImage:nil];
+//        [viewCtrls addObject:navCtrl2];
+    
+    for (NSDictionary *dict in self.websites) {
+        WebViewController *webVC = [[WebViewController alloc] init];
+        webVC.title = dict[@"Title"];
+        webVC.urlString = dict[@"URL"];
+        UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:webVC];
+        navCtrl.tabBarItem = [[UITabBarItem alloc] initWithTitle:dict[@"Title"] image:[UIImage imageWithText:[dict[@"Title"] firstLetterOfPinyin] size:CGSizeMake(24, 24)] selectedImage:nil];
+        [viewCtrls addObject:navCtrl];
+    }
+    
+    self.viewControllers = viewCtrls;
+}
+
+- (void)reloadViewControllers {
+    NSMutableArray *viewCtrls = [[NSMutableArray alloc] init];
+    
+    //知乎日报固定不动
+    [viewCtrls addObject:self.viewControllers[0]];
+    
+    for (NSDictionary *dict in self.websites) {
+        WebViewController *webVC = [[WebViewController alloc] init];
+        webVC.title = dict[@"Title"];
+        webVC.urlString = dict[@"URL"];
+        UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:webVC];
+        navCtrl.tabBarItem = [[UITabBarItem alloc] initWithTitle:dict[@"Title"] image:[UIImage imageWithText:[dict[@"Title"] firstLetterOfPinyin] size:CGSizeMake(24, 24)] selectedImage:nil];
+        [viewCtrls addObject:navCtrl];
+    }
+    
+    self.viewControllers = viewCtrls;
+}
+
+- (void)websiteListDidChange {
+    
+    NSString *dstFilePath = [NSHomeDirectory() stringByAppendingPathComponent:[NSString stringWithFormat:@"Documents/%@", CXWebsiteFile]];
+    NSArray *array = [NSArray arrayWithContentsOfFile:dstFilePath];
+    [self.websites removeAllObjects];
+    [self.websites addObjectsFromArray:array];
+    
+    [self reloadViewControllers];
 }
 
 - (void)showSetting {

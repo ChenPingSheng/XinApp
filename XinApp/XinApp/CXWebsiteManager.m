@@ -35,9 +35,11 @@
     if (!array1) {
         NSURL *srcURL = [self fileURLForAppBundle];
         [fm copyItemAtURL:srcURL toURL:dstURL error:NULL];
+        array1 = [NSArray arrayWithContentsOfURL:srcURL];
     }
     if (!array2) {
         [fm copyItemAtURL:dstURL toURL:extURL error:NULL];
+        array2 = [NSArray arrayWithContentsOfURL:dstURL];
     }
     
     //如果两处不一致，用AppGroup里的
@@ -82,9 +84,8 @@
     return ![array1 isEqualToArray:array2];
 }
 
-+ (BOOL)websiteExistsWithTitle:(NSString *)title url:(NSString*)url
++ (BOOL)websiteExistsWithTitle:(NSString *)title url:(NSString*)url inArray:(NSArray*)array
 {
-    NSArray *array = [self sharedWebsites];
     for (NSDictionary *dict in array) {
         if ([title isEqualToString:dict[@"Title"]] && [url isEqualToString:dict[@"URL"]]) {
             return YES;
@@ -95,25 +96,30 @@
 
 + (void)addWebsiteWithTitle:(NSString *)title url:(NSString *)url fromExt:(BOOL)fromExt
 {
-    if ([self websiteExistsWithTitle:title url:url]) {
-        return;
-    }
     NSDictionary *dict = @{@"Title":title, @"URL":url};
     
     NSURL *extURL = [self fileURLForAppGroup];
-    NSURL *dstURL = [self fileURLForMainApp];
     
     NSMutableArray *array = nil;
     if (fromExt) {
         array = [NSMutableArray arrayWithContentsOfURL:extURL];
+        if ([self websiteExistsWithTitle:title url:url inArray:array]) {
+            return;
+        }
+        [array addObject:dict];
+        [array writeToURL:extURL atomically:YES];
     }
     else {
+        NSURL *dstURL = [self fileURLForMainApp];
         array = [NSMutableArray arrayWithContentsOfURL:dstURL];
+        if ([self websiteExistsWithTitle:title url:url inArray:array]) {
+            return;
+        }
+        [array addObject:dict];
+        [array writeToURL:extURL atomically:YES];
+        [array writeToURL:dstURL atomically:YES];
     }
     
-    [array addObject:dict];
-    [array writeToURL:extURL atomically:YES];
-    [array writeToURL:dstURL atomically:YES];
 }
 
 + (void)saveWebsites:(NSArray*)array

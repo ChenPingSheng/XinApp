@@ -62,7 +62,7 @@
         NSString *title = alertCtrl.textFields[0].text;
         NSString *url = alertCtrl.textFields[1].text;
         if (title.length > 0 && url.length > 0 &&
-            ![CXWebsiteManager websiteExistsWithTitle:title url:url]) {
+            ![CXWebsiteManager websiteExistsWithTitle:title url:url inArray:self.dataArray]) {
             [self.dataArray addObject:@{@"Title":title, @"URL":url}];
             [CXWebsiteManager addWebsiteWithTitle:title url:url fromExt:NO];
             [self.tableView reloadData];

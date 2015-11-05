@@ -22,7 +22,7 @@
 //AppGroup里的数据和主App不一致
 + (BOOL)websitesIsDifferent;
 
-+ (BOOL)websiteExistsWithTitle:(NSString *)title url:(NSString*)url;
++ (BOOL)websiteExistsWithTitle:(NSString *)title url:(NSString*)url inArray:(NSArray*)array;
 
 + (void)addWebsiteWithTitle:(NSString *)title url:(NSString *)url fromExt:(BOOL)fromExt;
 + (void)saveWebsites:(NSArray*)array;

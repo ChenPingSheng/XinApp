@@ -10,4 +10,6 @@
 
 @interface ZhiHuViewController : UIViewController
 
+- (void)fetchLatestNewsWithCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler;
+
 @end

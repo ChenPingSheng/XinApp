@@ -7,6 +7,7 @@
 //
 
 #import "WebViewController.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface WebViewController () <UIScrollViewDelegate>
 {
@@ -20,9 +21,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
+    self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.webView.delegate = self;
+    self.webView.navigationDelegate = self;
     [self.view addSubview:self.webView];
     self.webView.scrollView.delegate = self;
     
@@ -92,12 +93,17 @@
     self.webView.scrollView.contentOffset = originContentOffset;
 }
 
-#pragma mark - webview delegate
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    return YES;
+#pragma mark - WKNavigationDelegate
+- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
+    [SVProgressHUD show];
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+    [SVProgressHUD showErrorWithStatus:@"加载失败"];
+}
+
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    [SVProgressHUD dismiss];
     [self reloadToolbarItemStatus];
 }
 

@@ -16,6 +16,7 @@
 #import "SettingViewController.h"
 #import "XinAppDefine.h"
 #import "CXWebsiteManager.h"
+#import "CXShortcutManager.h"
 
 @interface MainViewController ()
 
@@ -82,6 +83,7 @@
     }
     
     self.viewControllers = viewCtrls;
+    [CXShortcutManager updateShortcuts];
 }
 
 - (void)reloadViewControllers {
@@ -100,6 +102,7 @@
     }
     
     self.viewControllers = viewCtrls;
+    [CXShortcutManager updateShortcuts];
 }
 
 - (void)websiteListDidChange {
@@ -112,13 +115,23 @@
 - (void)showSetting {
     SettingViewController *vc = [[SettingViewController alloc] initWithStyle:UITableViewStyleGrouped];
     vc.title = @"设置";
-    vc.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(dismissViewCtrl)];
-    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:navCtrl animated:YES completion:nil];
+//    vc.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStylePlain target:self action:@selector(dismissViewCtrl)];
+//    UINavigationController *navCtrl = [[UINavigationController alloc] initWithRootViewController:vc];
+//    [self presentViewController:navCtrl animated:YES completion:nil];
+    UINavigationController *navCtrl1 = self.viewControllers[0];
+    [navCtrl1 pushViewController:vc animated:YES];
 }
 
-- (void)dismissViewCtrl {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//- (void)dismissViewCtrl {
+//    [self dismissViewControllerAnimated:YES completion:nil];
+//}
+
+#pragma mark - background fetch
+- (void)performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+    UIViewController *viewCtrl = [(UINavigationController*)self.viewControllers[0] topViewController];
+    if ([viewCtrl isKindOfClass:[ZhiHuViewController class]]) {
+        [(ZhiHuViewController*)viewCtrl fetchLatestNewsWithCompletionHandler:completionHandler];
+    }
 }
 
 @end

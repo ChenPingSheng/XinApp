@@ -27,6 +27,8 @@
 		B4073EDB1BE73F9700A7DD24 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4073EDA1BE73F9700A7DD24 /* WebViewController.m */; };
 		B4073EDE1BE7410500A7DD24 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4073EDD1BE7410500A7DD24 /* MainViewController.m */; };
 		B4073EE41BE75CC000A7DD24 /* UIImage+Text.m in Sources */ = {isa = PBXBuildFile; fileRef = B4073EE31BE75CC000A7DD24 /* UIImage+Text.m */; };
+		B42A850C1BF312C100D88B91 /* CXShortcutManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B42A850B1BF312C100D88B91 /* CXShortcutManager.m */; };
+		B42A850D1BF32BB500D88B91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4071F631BD9D99C0039C857 /* Assets.xcassets */; };
 		B4CA4BC61BDE10E30082BDE6 /* ZhiHuNewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4BC51BDE10E30082BDE6 /* ZhiHuNewsDetailViewController.m */; };
 		B4CA4BC91BDE2B340082BDE6 /* ZhiHuThemesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4BC81BDE2B340082BDE6 /* ZhiHuThemesViewController.m */; };
 		B4CA4BCC1BDE2C600082BDE6 /* ZhiHuThemeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B4CA4BCB1BDE2C600082BDE6 /* ZhiHuThemeDetailViewController.m */; };
@@ -98,6 +100,8 @@
 		B4073EDD1BE7410500A7DD24 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		B4073EE21BE75CC000A7DD24 /* UIImage+Text.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Text.h"; path = "Categories/UIImage+Text.h"; sourceTree = "<group>"; };
 		B4073EE31BE75CC000A7DD24 /* UIImage+Text.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Text.m"; path = "Categories/UIImage+Text.m"; sourceTree = "<group>"; };
+		B42A850A1BF312C100D88B91 /* CXShortcutManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXShortcutManager.h; sourceTree = "<group>"; };
+		B42A850B1BF312C100D88B91 /* CXShortcutManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXShortcutManager.m; sourceTree = "<group>"; };
 		B4CA4BC41BDE10E30082BDE6 /* ZhiHuNewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZhiHuNewsDetailViewController.h; path = ZhiHu/ZhiHuNewsDetailViewController.h; sourceTree = "<group>"; };
 		B4CA4BC51BDE10E30082BDE6 /* ZhiHuNewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ZhiHuNewsDetailViewController.m; path = ZhiHu/ZhiHuNewsDetailViewController.m; sourceTree = "<group>"; };
 		B4CA4BC71BDE2B340082BDE6 /* ZhiHuThemesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ZhiHuThemesViewController.h; path = ZhiHu/ZhiHuThemesViewController.h; sourceTree = "<group>"; };
@@ -203,6 +207,8 @@
 				B4030F691BE9D14C00A14A87 /* CXURLCache.m */,
 				B4030FD31BEA30B700A14A87 /* CXWebsiteManager.h */,
 				B4030FD41BEA30B700A14A87 /* CXWebsiteManager.m */,
+				B42A850A1BF312C100D88B91 /* CXShortcutManager.h */,
+				B42A850B1BF312C100D88B91 /* CXShortcutManager.m */,
 				B4030F9E1BE9FABD00A14A87 /* Setting */,
 				B4071F711BD9DD570039C857 /* ZhiHu */,
 				B4071F631BD9D99C0039C857 /* Assets.xcassets */,
@@ -315,6 +321,9 @@
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
 							};
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -343,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42A850D1BF32BB500D88B91 /* Assets.xcassets in Resources */,
 				B4030FAE1BEA179100A14A87 /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B42A850C1BF312C100D88B91 /* CXShortcutManager.m in Sources */,
 				B4CA4BCC1BDE2C600082BDE6 /* ZhiHuThemeDetailViewController.m in Sources */,
 				B4073EDB1BE73F9700A7DD24 /* WebViewController.m in Sources */,
 				B4073EE41BE75CC000A7DD24 /* UIImage+Text.m in Sources */,
@@ -459,12 +470,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = XinAppExt/XinAppExt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XinAppExt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenxinapp.XinApp.XinAppExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -477,12 +487,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_ENTITLEMENTS = XinAppExt/XinAppExt.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = XinAppExt/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.chenxinapp.XinApp.XinAppExt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -527,7 +536,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -564,7 +573,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

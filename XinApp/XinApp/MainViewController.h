@@ -10,4 +10,6 @@
 
 @interface MainViewController : UITabBarController
 
+- (void)performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler;
+
 @end

@@ -9,8 +9,9 @@
 #import "SettingViewController.h"
 #import "XinAppDefine.h"
 #import "WebsiteListViewController.h"
+#import <SafariServices/SafariServices.h>
 
-@interface SettingViewController ()
+@interface SettingViewController () <SFSafariViewControllerDelegate>
 
 @property (nonatomic, strong) UISwitch *noImageSwitch;
 
@@ -55,7 +56,7 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -72,6 +73,10 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else if (indexPath.section == 1) {
+        cell.textLabel.text = @"百度一下";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
+    else if (indexPath.section == 2) {
         cell.textLabel.text = @"非WiFi环境下不加载图片";
         cell.accessoryView = self.noImageSwitch;
     }
@@ -86,6 +91,16 @@
         vc.title = @"网站列表";
         [self.navigationController pushViewController:vc animated:YES];
     }
+    else if (indexPath.section == 1) {
+        SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
+        safariVC.delegate = self;
+        [self.navigationController presentViewController:safariVC animated:YES completion:nil];
+    }
+}
+
+#pragma mark - SFSafariViewControllerDelegate
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

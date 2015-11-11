@@ -68,14 +68,30 @@
 
 - (void)fetchLatestNews
 {
+    [self fetchLatestNewsWithCompletionHandler:nil];
+}
+
+- (void)fetchLatestNewsWithCompletionHandler:(void (^)(UIBackgroundFetchResult result))completionHandler {
+    
     [ZhiHuAPI latestNewsWithSuccess:^(NSString *date, NSArray *stories, NSArray *topStories) {
         [SVProgressHUD dismiss];
+        if (completionHandler) {
+            if ([stories isEqualToArray:self.latestArray]) {
+                completionHandler(UIBackgroundFetchResultNoData);
+            }
+            else {
+                completionHandler(UIBackgroundFetchResultNewData);
+            }
+        }
         self.latestArray = stories;
         self.latestDate = date;
         self.beforeDate = date;
         [self.tableView reloadData];
     } failure:^(NSError *error) {
         [SVProgressHUD showErrorWithStatus:@"请求失败"];
+        if (completionHandler) {
+            completionHandler(UIBackgroundFetchResultFailed);
+        }
     }];
     [SVProgressHUD show];
 }

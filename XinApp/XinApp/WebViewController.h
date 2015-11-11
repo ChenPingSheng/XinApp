@@ -7,11 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <WebKit/WebKit.h>
 
-@interface WebViewController : UIViewController <WKNavigationDelegate>
+@interface WebViewController : UIViewController <UIWebViewDelegate>
 
-@property (nonatomic, strong) WKWebView *webView;
+@property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, strong) NSString *urlString;
 
 @end

@@ -94,7 +94,9 @@
     else if (indexPath.section == 1) {
         SFSafariViewController *safariVC = [[SFSafariViewController alloc] initWithURL:[NSURL URLWithString:@"http://www.baidu.com"]];
         safariVC.delegate = self;
-        [self.navigationController presentViewController:safariVC animated:YES completion:nil];
+//        [self.navigationController presentViewController:safariVC animated:YES completion:nil];
+        safariVC.title = @"百度一下";
+        [self.navigationController pushViewController:safariVC animated:YES];
     }
 }
 

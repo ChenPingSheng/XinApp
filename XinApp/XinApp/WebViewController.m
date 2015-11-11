@@ -21,11 +21,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.webView = [[WKWebView alloc] initWithFrame:self.view.bounds];
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.bounds];
     self.webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    self.webView.navigationDelegate = self;
     [self.view addSubview:self.webView];
     self.webView.scrollView.delegate = self;
+    self.webView.delegate = self;
     
     NSURL *url = [NSURL URLWithString:self.urlString];
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
@@ -93,16 +93,16 @@
     self.webView.scrollView.contentOffset = originContentOffset;
 }
 
-#pragma mark - WKNavigationDelegate
-- (void)webView:(WKWebView *)webView didCommitNavigation:(WKNavigation *)navigation {
+#pragma mark - webview delegate
+- (void)webViewDidStartLoad:(UIWebView *)webView{
     [SVProgressHUD show];
 }
 
-- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error {
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [SVProgressHUD showErrorWithStatus:@"加载失败"];
 }
 
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
     [SVProgressHUD dismiss];
     [self reloadToolbarItemStatus];
 }

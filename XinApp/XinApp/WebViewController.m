@@ -31,16 +31,21 @@
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self createToolbarItems];
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     self.navigationController.toolbarHidden = YES;
+    [SVProgressHUD dismiss];
 }
 
 - (void)viewDidLayoutSubviews
 {
     originContentOffset = self.webView.scrollView.contentOffset;
-    [self createToolbarItems];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,6 +55,7 @@
 
 - (void)createToolbarItems
 {
+    [self setGoTopEnable];
     if (!self.navigationController.toolbarHidden) {
         return;
     }
@@ -77,11 +83,17 @@
     UIBarButtonItem *item2 = self.navigationController.toolbar.items[3];
     item1.enabled = [self.webView canGoBack];
     item2.enabled = [self.webView canGoForward];
+    [self setGoTopEnable];
 }
 
-- (void)setGoTopEnable:(BOOL)enabled {
+- (void)setGoTopEnable {
     if (self.navigationController.toolbar.items.count != 9) {
         return;
+    }
+    BOOL enabled = NO;
+    CGPoint contentOffset = self.webView.scrollView.contentOffset;
+    if (contentOffset.y > originContentOffset.y) {
+        enabled = YES;
     }
     UIBarButtonItem *item = self.navigationController.toolbar.items[5];
     item.enabled = enabled;
@@ -110,13 +122,7 @@
 #pragma mark - scrollview delegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGPoint contentOffset = scrollView.contentOffset;
-    if (contentOffset.y > originContentOffset.y) {
-        [self setGoTopEnable:YES];
-    }
-    else {
-        [self setGoTopEnable:NO];
-    }
+    [self setGoTopEnable];
 }
 
 @end
